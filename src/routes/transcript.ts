@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { YoutubeTranscript } from 'youtube-transcript';
+import { YoutubeTranscript } from 'youtube-transcript/dist/youtube-transcript.esm.js';
 import { z } from 'zod';
 
 export const transcriptRouter = new Hono();
