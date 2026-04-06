@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: transcript-proxy
+    runtime: node
+    region: singapore   # closest to Vietnam — change if needed
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3001
+      # Optional: set a secret key so only your worker can call this
+      - key: PROXY_API_KEY
+        value: 3gu0uxu1otdl0pk81mewl4izvri40df066jiggd4
+      # Comma-separated list of allowed CORS origins
+      - key: ALLOWED_ORIGINS
+        value: vocabulary-memorize-api.nguyenhoanghiep478.workers.dev
+    healthCheckPath: /health
